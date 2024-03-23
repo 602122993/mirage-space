@@ -28,6 +28,11 @@
             <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
             <version>3.5.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.xiaoazhai</groupId>
+            <artifactId>mirage-space-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!-- framework 依赖   -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

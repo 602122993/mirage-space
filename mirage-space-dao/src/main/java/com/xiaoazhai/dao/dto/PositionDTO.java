@@ -3,10 +3,12 @@ package com.xiaoazhai.dao.dto;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.xiaoazhai.dao.pojo.Position;
+import com.xiaoazhai.dao.pojo.Strategy;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -25,7 +27,6 @@ public class PositionDTO implements Serializable {
     /**
      * 主键ID，自增
      */
-    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -47,7 +48,10 @@ public class PositionDTO implements Serializable {
      * 开发参数
      */
     private String developParam;
-
+    /**
+     * 转发器
+     */
+    private List<DispatcherDTO> dispatcherDTOS;
 
     public static PositionDTO build(Position position) {
         PositionDTO positionDTO = new PositionDTO();

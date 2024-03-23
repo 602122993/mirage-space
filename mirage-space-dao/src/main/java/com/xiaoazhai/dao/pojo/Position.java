@@ -56,4 +56,8 @@ public class Position implements Serializable {
      * 更新时间，自动更新
      */
     private LocalDateTime updateTime;
+    /**
+     * 状态1，正常 0，删除
+     */
+    private Integer status;
 }

@@ -18,4 +18,6 @@ public interface IPositionService extends IService<Position> {
     IPage<PositionDTO> queryPositionList(String searchItem, Integer pageNum, Integer pageSize);
 
     void addPosition(String name, String positionCode, String description, String developParam);
+
+    PositionDTO getPositionInfo(String positionCode);
 }

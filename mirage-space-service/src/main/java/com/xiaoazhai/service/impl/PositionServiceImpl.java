@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.xiaoazhai.common.enums.CommonStatusEnum;
 import com.xiaoazhai.dao.dto.PositionDTO;
 import com.xiaoazhai.dao.pojo.Position;
 import com.xiaoazhai.dao.mapper.PositionMapper;
@@ -25,9 +26,9 @@ public class PositionServiceImpl extends ServiceImpl<PositionMapper, Position> i
     @Override
     public IPage<PositionDTO> queryPositionList(String searchItem, Integer pageNum, Integer pageSize) {
         Page<Position> result = page(new Page<>(pageNum, pageSize), Wrappers.<Position>lambdaQuery()
-                .or(StringUtils.isNotBlank(searchItem),wrapper -> Wrappers.<Position>lambdaQuery().like( Position::getName, searchItem)
-                        .like( Position::getPositionCode, searchItem)));
-      return  result.convert(PositionDTO::build);
+                .or(StringUtils.isNotBlank(searchItem), wrapper -> Wrappers.<Position>lambdaQuery().like(Position::getName, searchItem)
+                        .like(Position::getPositionCode, searchItem)));
+        return result.convert(PositionDTO::build);
     }
 
     @Override
@@ -36,7 +37,13 @@ public class PositionServiceImpl extends ServiceImpl<PositionMapper, Position> i
         position.setName(name);
         position.setPositionCode(positionCode);
         position.setDescription(description);
+        position.setStatus(CommonStatusEnum.NORMAL.getStatus());
         position.setDevelopParam(developParam);
         save(position);
+    }
+
+    @Override
+    public PositionDTO getPositionInfo(String positionCode) {
+        return PositionDTO.build(getOne(Wrappers.<Position>lambdaQuery().eq(Position::getPositionCode, positionCode).eq(Position::getStatus, CommonStatusEnum.NORMAL.getStatus())));
     }
 }
