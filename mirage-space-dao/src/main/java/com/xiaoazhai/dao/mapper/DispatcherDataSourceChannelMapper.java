@@ -1,6 +1,6 @@
 package com.xiaoazhai.dao.mapper;
 
-import com.xiaoazhai.dao.pojo.DispatcherDataSourceChannel;
+import com.xiaoazhai.dao.pojo.DataChannel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author xiaoazhai
  * @since 2024-03-09
  */
-public interface DispatcherDataSourceChannelMapper extends BaseMapper<DispatcherDataSourceChannel> {
+public interface DispatcherDataSourceChannelMapper extends BaseMapper<DataChannel> {
 
 }

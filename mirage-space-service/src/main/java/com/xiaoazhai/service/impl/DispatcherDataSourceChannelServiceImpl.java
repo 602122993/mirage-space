@@ -1,6 +1,6 @@
 package com.xiaoazhai.service.impl;
 
-import com.xiaoazhai.dao.pojo.DispatcherDataSourceChannel;
+import com.xiaoazhai.dao.pojo.DataChannel;
 import com.xiaoazhai.dao.mapper.DispatcherDataSourceChannelMapper;
 import com.xiaoazhai.service.IDispatcherDataSourceChannelService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2024-03-09
  */
 @Service
-public class DispatcherDataSourceChannelServiceImpl extends ServiceImpl<DispatcherDataSourceChannelMapper, DispatcherDataSourceChannel> implements IDispatcherDataSourceChannelService {
+public class DispatcherDataSourceChannelServiceImpl extends ServiceImpl<DispatcherDataSourceChannelMapper, DataChannel> implements IDispatcherDataSourceChannelService {
 
 }

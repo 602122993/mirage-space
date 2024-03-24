@@ -17,7 +17,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class DispatcherDataSourceChannel implements Serializable {
+public class DataChannel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,11 +26,6 @@ public class DispatcherDataSourceChannel implements Serializable {
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-
-    /**
-     * 调度器ID
-     */
-    private Long dispatcherId;
 
     /**
      * 通道名称

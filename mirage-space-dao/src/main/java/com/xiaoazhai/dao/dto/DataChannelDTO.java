@@ -1,7 +1,6 @@
 package com.xiaoazhai.dao.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.xiaoazhai.dao.config.HasStrategy;
 import lombok.Data;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
  * 转发器数据源链接通道 dto
  */
 @Data
-public class DispatcherDataSourceChannelDTO {
+public class DataChannelDTO implements HasStrategy {
 
     /**
      * 主键ID，自增
@@ -29,8 +28,10 @@ public class DispatcherDataSourceChannelDTO {
 
     /**
      * 通道类型
+     *
+     * @see com.xiaoazhai.common.enums.ChannelTypeEnum
      */
-    private String channelType;
+    private Integer channelType;
     /**
      * 通道绑定策略
      */

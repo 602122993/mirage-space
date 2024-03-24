@@ -1,14 +1,10 @@
 package com.xiaoazhai.dao.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.xiaoazhai.dao.pojo.DispatcherDataSourceChannel;
-import com.xiaoazhai.dao.pojo.Strategy;
+import com.xiaoazhai.dao.config.HasStrategy;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -21,7 +17,7 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class DispatcherDTO implements Serializable {
+public class DispatcherDTO implements Serializable , HasStrategy {
 
 
     /**
@@ -41,10 +37,10 @@ public class DispatcherDTO implements Serializable {
     /**
      * 对应策略列表
      */
-    private List<StrategyDTO> stategyList;
+    private List<StrategyDTO> strategyList;
     /**
-     * 绑定数据源通道
+     * 绑定数据源的通道组
      */
-    private List<DispatcherDataSourceChannelDTO> channelList;
+    private DispatcherChannelMatchDTO channelMatch;
 
 }

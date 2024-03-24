@@ -1,6 +1,6 @@
 package com.xiaoazhai.service;
 
-import com.xiaoazhai.dao.pojo.DispatcherDataSourceChannel;
+import com.xiaoazhai.dao.pojo.DataChannel;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author xiaoazhai
  * @since 2024-03-09
  */
-public interface IDispatcherDataSourceChannelService extends IService<DispatcherDataSourceChannel> {
+public interface IDispatcherDataSourceChannelService extends IService<DataChannel> {
 
 }
