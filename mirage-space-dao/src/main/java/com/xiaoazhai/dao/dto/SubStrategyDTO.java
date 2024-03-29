@@ -1,7 +1,5 @@
 package com.xiaoazhai.dao.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.List;
  * 调度器DTO
  */
 @Data
-public class StrategyDTO {
+public class SubStrategyDTO {
 
     /**
      * 主键ID，自增
@@ -29,6 +27,8 @@ public class StrategyDTO {
 
     /**
      * 策略详情
+     *
+     * @see StrategyConfigDTO
      */
     private String strategyDetail;
 
@@ -41,9 +41,4 @@ public class StrategyDTO {
      * 策略白名单
      */
     private List<Long> whiteList;
-
-    /**
-     * 子策略
-     */
-    private List<StrategyDTO> strategyDTOS;
 }

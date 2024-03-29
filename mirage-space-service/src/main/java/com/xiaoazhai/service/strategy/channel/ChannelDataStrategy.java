@@ -3,9 +3,9 @@ package com.xiaoazhai.service.strategy.channel;
 import com.xiaoazhai.dao.dto.DataChannelDTO;
 import com.xiaoazhai.dao.dto.ProcessContext;
 
-public interface ChannelDataStrategy {
+public interface ChannelDataStrategy<T> {
 
-    Object getChannelData(DataChannelDTO dataChannelDTO, ProcessContext processContext);
+    T getChannelData(DataChannelDTO dataChannelDTO, ProcessContext processContext);
 
     /**
      * 获取通道类型

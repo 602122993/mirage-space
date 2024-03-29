@@ -26,7 +26,7 @@ public class ChannelService {
     List<ChannelDataStrategy> channelDataStrategyList;
     @Resource
     List<ChannelGroupAssemblyStrategy> channelGroupAssemblyStrategyList;
-    private Map<Integer, ChannelDataStrategy> channelDataStrategyMap;
+    private Map<Integer, ChannelDataStrategy<?>> channelDataStrategyMap;
 
     private Map<Integer, ChannelGroupAssemblyStrategy> channelGroupAssemblyStrategyMap;
 
@@ -54,7 +54,7 @@ public class ChannelService {
                 return channelGroupAssembly.getChannelGroupData(dispatcherChannelMatch, processContext);
             } else {
                 //非通道组，直接获取通道的数据
-                ChannelDataStrategy channelDatastrategy = channelDataStrategyMap.get(dispatcherChannelMatch.getDataChannel().getChannelType());
+                ChannelDataStrategy<?> channelDatastrategy = channelDataStrategyMap.get(dispatcherChannelMatch.getDataChannel().getChannelType());
                 if (channelDatastrategy != null) {
                     return channelDatastrategy.getChannelData(dispatcherChannelMatch.getDataChannel(), processContext);
                 }
