@@ -1,6 +1,6 @@
-package com.xiaoazhai.dao.dto;
+package com.xiaoazhai.dto;
 
-import com.xiaoazhai.dao.config.HasStrategy;
+import com.xiaoazhai.service.strategy.annotions.HasStrategy;
 import lombok.Data;
 
 import java.util.List;

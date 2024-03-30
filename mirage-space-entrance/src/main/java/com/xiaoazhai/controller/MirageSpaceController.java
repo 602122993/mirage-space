@@ -2,8 +2,8 @@ package com.xiaoazhai.controller;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import com.xiaoazhai.dao.dto.PositionDataDTO;
-import com.xiaoazhai.dao.dto.ProcessContext;
+import com.xiaoazhai.dto.PositionDataDTO;
+import com.xiaoazhai.dto.ProcessContext;
 import com.xiaoazhai.position.PositionProcess;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

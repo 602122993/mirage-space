@@ -1,8 +1,8 @@
 package com.xiaoazhai.service.strategy.channel;
 
 import com.xiaoazhai.common.enums.ChannelTypeEnum;
-import com.xiaoazhai.dao.dto.DataChannelDTO;
-import com.xiaoazhai.dao.dto.ProcessContext;
+import com.xiaoazhai.dto.DataChannelDTO;
+import com.xiaoazhai.dto.ProcessContext;
 import org.springframework.stereotype.Component;
 
 /**

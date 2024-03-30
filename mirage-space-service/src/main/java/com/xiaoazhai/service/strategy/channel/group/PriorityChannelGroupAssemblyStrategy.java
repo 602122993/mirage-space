@@ -1,9 +1,8 @@
 package com.xiaoazhai.service.strategy.channel.group;
 
 import com.xiaoazhai.common.enums.ChannelGroupAssemblyEnum;
-import com.xiaoazhai.common.enums.ChannelGroupTypeEnum;
-import com.xiaoazhai.dao.dto.DispatcherChannelMatchDTO;
-import com.xiaoazhai.dao.dto.ProcessContext;
+import com.xiaoazhai.dto.DispatcherChannelMatchDTO;
+import com.xiaoazhai.dto.ProcessContext;
 import com.xiaoazhai.service.impl.ChannelService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;

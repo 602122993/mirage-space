@@ -1,16 +1,11 @@
-package com.xiaoazhai.dao.dto;
+package com.xiaoazhai.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.xiaoazhai.common.enums.ChannelGroupAssemblyEnum;
 import com.xiaoazhai.common.enums.ChannelGroupTypeEnum;
-import com.xiaoazhai.dao.config.HasStrategy;
-import com.xiaoazhai.dao.pojo.DataChannel;
-import com.xiaoazhai.dao.pojo.DispatcherChannelMatch;
+import com.xiaoazhai.service.strategy.annotions.HasStrategy;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data

@@ -1,8 +1,8 @@
 package com.xiaoazhai.service.strategy.channel.group;
 
 import com.xiaoazhai.common.enums.ChannelGroupAssemblyEnum;
-import com.xiaoazhai.dao.dto.DispatcherChannelMatchDTO;
-import com.xiaoazhai.dao.dto.ProcessContext;
+import com.xiaoazhai.dto.DispatcherChannelMatchDTO;
+import com.xiaoazhai.dto.ProcessContext;
 
 /**
  * 通道组组合策略

@@ -1,6 +1,7 @@
-package com.xiaoazhai.dao.config;
+package com.xiaoazhai.service.strategy.annotions;
 
-import com.xiaoazhai.dao.dto.StrategyDTO;
+
+import com.xiaoazhai.dto.StrategyDTO;
 
 import java.util.List;
 

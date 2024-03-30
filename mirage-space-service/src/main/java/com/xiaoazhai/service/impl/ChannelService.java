@@ -1,14 +1,11 @@
 package com.xiaoazhai.service.impl;
 
-import com.xiaoazhai.common.enums.ChannelGroupAssemblyEnum;
-import com.xiaoazhai.dao.dto.DataChannelDTO;
-import com.xiaoazhai.dao.dto.DispatcherChannelMatchDTO;
-import com.xiaoazhai.dao.dto.ProcessContext;
+import com.xiaoazhai.dto.DispatcherChannelMatchDTO;
+import com.xiaoazhai.dto.ProcessContext;
 import com.xiaoazhai.service.strategy.channel.ChannelDataStrategy;
 import com.xiaoazhai.service.strategy.channel.group.ChannelGroupAssemblyStrategy;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -32,7 +29,9 @@ public class ChannelService {
 
     @PostConstruct
     public void init() {
-        channelDataStrategyMap = channelDataStrategyList.stream().collect(Collectors.toMap(ChannelDataStrategy::getChannelType, Function.identity()));
+        for (ChannelDataStrategy<?> channelDataStrategy : channelDataStrategyList) {
+            channelDataStrategyMap.put(channelDataStrategy.getChannelType(),channelDataStrategy);
+        }
         channelGroupAssemblyStrategyMap = channelGroupAssemblyStrategyList.stream().collect(Collectors.toMap(ChannelGroupAssemblyStrategy::getChannelGroupType, Function.identity()));
     }
 

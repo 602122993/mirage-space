@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiaoazhai.common.enums.CommonStatusEnum;
-import com.xiaoazhai.dao.dto.PositionDTO;
+import com.xiaoazhai.dto.PositionDTO;
 import com.xiaoazhai.dao.pojo.Position;
 import com.xiaoazhai.dao.mapper.PositionMapper;
 import com.xiaoazhai.service.IPositionService;

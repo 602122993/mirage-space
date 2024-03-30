@@ -1,7 +1,7 @@
-package com.xiaoazhai.dao.dto;
+package com.xiaoazhai.dto;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
-import com.xiaoazhai.common.enums.OperatorEnum;
+import com.xiaoazhai.service.strategy.strategy.enums.OperatorEnum;
 import lombok.Data;
 
 import java.util.List;

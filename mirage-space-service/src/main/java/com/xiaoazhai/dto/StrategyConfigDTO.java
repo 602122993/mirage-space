@@ -1,4 +1,4 @@
-package com.xiaoazhai.dao.dto;
+package com.xiaoazhai.dto;
 
 import lombok.Data;
 

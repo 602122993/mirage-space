@@ -1,7 +1,7 @@
 package com.xiaoazhai.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.xiaoazhai.dao.dto.PositionDTO;
+import com.xiaoazhai.dto.PositionDTO;
 import com.xiaoazhai.dao.pojo.Position;
 import com.baomidou.mybatisplus.extension.service.IService;
 

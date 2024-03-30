@@ -1,7 +1,7 @@
 package com.xiaoazhai.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.xiaoazhai.dao.dto.PositionDTO;
+import com.xiaoazhai.dto.PositionDTO;
 import com.xiaoazhai.service.IPositionService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;

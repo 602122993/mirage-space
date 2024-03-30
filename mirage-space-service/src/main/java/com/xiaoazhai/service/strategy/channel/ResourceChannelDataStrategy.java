@@ -1,8 +1,8 @@
 package com.xiaoazhai.service.strategy.channel;
 
-import com.xiaoazhai.dao.dto.DataChannelDTO;
-import com.xiaoazhai.dao.dto.ProcessContext;
-import com.xiaoazhai.dao.dto.ResourceSortDTO;
+import com.xiaoazhai.dto.DataChannelDTO;
+import com.xiaoazhai.dto.ProcessContext;
+import com.xiaoazhai.dto.ResourceSortDTO;
 import org.springframework.stereotype.Component;
 
 /**

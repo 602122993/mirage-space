@@ -1,9 +1,9 @@
 package com.xiaoazhai.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.xiaoazhai.dao.config.HasStrategy;
-import com.xiaoazhai.dao.dto.ProcessContext;
-import com.xiaoazhai.dao.dto.StrategyDTO;
+import com.xiaoazhai.service.strategy.annotions.HasStrategy;
+import com.xiaoazhai.dto.ProcessContext;
+import com.xiaoazhai.dto.StrategyDTO;
 import com.xiaoazhai.service.strategy.strategy.BaseStrategyService;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
