@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Component
 @Slf4j
-public class StrategyService {
+public class StrategyExecuteService {
 
     @Resource
     private List<BaseStrategyService> strategyServiceList;

@@ -5,7 +5,7 @@ import com.xiaoazhai.dto.PositionDTO;
 import com.xiaoazhai.dto.ProcessContext;
 import com.xiaoazhai.service.IPositionService;
 import com.xiaoazhai.service.impl.ChannelService;
-import com.xiaoazhai.service.impl.StrategyService;
+import com.xiaoazhai.service.impl.StrategyExecuteService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ public class PositionProcess {
     private IPositionService positionService;
 
     @Resource
-    private StrategyService strategyService;
+    private StrategyExecuteService strategyExecuteService;
 
     @Resource
     private ChannelService channelService;
@@ -42,7 +42,7 @@ public class PositionProcess {
             List<DispatcherDTO> dispatcherList = processContext.getPositionDTO().getDispatcherDTOS();
             for (DispatcherDTO dispatcherDTO : dispatcherList) {
                 //判断策略是否通过
-                if (strategyService.isPassStrategy(dispatcherDTO, processContext)) {
+                if (strategyExecuteService.isPassStrategy(dispatcherDTO, processContext)) {
                     //获取通道数据
                     Object channelData = channelService.getChannelData(dispatcherDTO.getChannelMatch(), processContext);
                     if (channelData == null) {

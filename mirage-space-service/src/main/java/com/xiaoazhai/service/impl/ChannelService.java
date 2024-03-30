@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class ChannelService {
 
     @Resource
-    private StrategyService strategyService;
+    private StrategyExecuteService strategyExecuteService;
 
     @Resource
     List<ChannelDataStrategy> channelDataStrategyList;
@@ -44,7 +44,7 @@ public class ChannelService {
      */
 
     public Object getChannelData(DispatcherChannelMatchDTO dispatcherChannelMatch, ProcessContext processContext) {
-        boolean isPass = strategyService.isPassStrategy(dispatcherChannelMatch, processContext);
+        boolean isPass = strategyExecuteService.isPassStrategy(dispatcherChannelMatch, processContext);
         if (isPass) {
             //通道策略通过
             if (dispatcherChannelMatch.isChannelGroup()) {
