@@ -1,5 +1,10 @@
 package com.xiaoazhai.dto;
 
+import cn.hutool.core.collection.CollectionUtil;
+import com.alibaba.fastjson.JSON;
+import com.xiaoazhai.common.annotations.JsonDetail;
+import com.xiaoazhai.common.util.JsonDetailFormatUtil;
+import com.xiaoazhai.dao.pojo.Strategy;
 import com.xiaoazhai.service.strategy.strategy.enums.StrategyExpressionTypeEnum;
 import lombok.Data;
 
@@ -28,7 +33,7 @@ public class StrategyDTO {
      * <p>
      * 具体绑定的业务id
      */
-    private String bindId;
+    private Long bindId;
 
     /**
      * 策略详情
@@ -42,6 +47,7 @@ public class StrategyDTO {
     /**
      * 策略表达式
      */
+    @JsonDetail
     private String strategyExpression;
 
     /**
@@ -49,6 +55,7 @@ public class StrategyDTO {
      *
      * @see com.xiaoazhai.service.strategy.strategy.enums.StrategyExpressionTypeEnum
      */
+    @JsonDetail
     private String strategyExpressionType;
     /**
      * 策略表达式类型枚举
@@ -58,10 +65,23 @@ public class StrategyDTO {
     /**
      * 策略白名单
      */
+    @JsonDetail
     private List<Long> whiteList;
 
     /**
      * 子策略
      */
     private List<SubStrategyDTO> subStrategyList;
+
+
+    public Strategy toStrategy() {
+        Strategy strategy = new Strategy();
+        strategy.setStrategyCode(strategyCode);
+        strategy.setBindType(bindType);
+        strategy.setBindId(bindId);
+        strategy.setStrategyDetail(JsonDetailFormatUtil.formatJson(this));
+        strategy.setId(id);
+        return strategy;
+    }
+
 }

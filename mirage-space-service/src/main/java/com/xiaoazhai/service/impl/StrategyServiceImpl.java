@@ -2,9 +2,12 @@ package com.xiaoazhai.service.impl;
 
 import com.xiaoazhai.dao.pojo.Strategy;
 import com.xiaoazhai.dao.mapper.StrategyMapper;
+import com.xiaoazhai.dto.StrategyDTO;
 import com.xiaoazhai.service.IStrategyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class StrategyServiceImpl extends ServiceImpl<StrategyMapper, Strategy> implements IStrategyService {
 
+    @Override
+    public void addOrUpdate(List<StrategyDTO> strategyDTOList) {
+        //批量添加策略
+
+    }
 }

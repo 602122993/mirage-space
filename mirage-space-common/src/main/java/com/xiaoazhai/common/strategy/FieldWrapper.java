@@ -25,11 +25,12 @@ public class FieldWrapper<T> {
         Object convertValue = value;
         try {
             if (Collection.class.isAssignableFrom(value.getClass())) {
-                return OpUtils.execute(op, (Collection<? extends Comparable>) value, (Comparable) target);
+                return OpUtils.execute(op, (Collection<Comparable>) value, (Comparable) target);
             }
             if (Comparable.class.isAssignableFrom(target.getClass())) {
                 return OpUtils.execute(op, (Comparable) target, (Comparable) convertValue);
             }
+
             return false;
         } catch (Exception e) {
             log.error("FieldWrapper verify fail {} {} {}", op, target, convertValue, e);

@@ -2,6 +2,9 @@ package com.xiaoazhai.service;
 
 import com.xiaoazhai.dao.pojo.Strategy;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiaoazhai.dto.StrategyDTO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IStrategyService extends IService<Strategy> {
 
+
+    void addOrUpdate(List<StrategyDTO> strategyDTOList);
 }

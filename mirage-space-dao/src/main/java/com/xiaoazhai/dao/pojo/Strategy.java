@@ -35,7 +35,7 @@ public class Strategy implements Serializable {
     /**
      * 绑定ID
      */
-    private String bindId;
+    private Long bindId;
 
     /**
      * 策略详情
