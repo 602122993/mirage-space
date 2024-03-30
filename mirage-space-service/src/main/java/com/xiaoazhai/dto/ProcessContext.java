@@ -13,7 +13,7 @@ public class ProcessContext {
     /**
      * 用户ID
      */
-    private String userId;
+    private Long userId;
 
     /**
      * 位置代码

@@ -24,7 +24,8 @@ public class StrategyService {
     private List<BaseStrategyService> strategyServiceList;
 
 
-    private Map<String,BaseStrategyService> strategyServiceMap;
+    private Map<String, BaseStrategyService> strategyServiceMap;
+
     @PostConstruct
     public void init() {
         if (CollectionUtil.isNotEmpty(strategyServiceList)) {
@@ -40,7 +41,12 @@ public class StrategyService {
             log.info("策略列表为空,默认视为通过");
             return true;
         }
-
+        for (StrategyDTO strategyDTO : strategyList) {
+            if (CollectionUtil.isNotEmpty(strategyDTO.getWhiteList()) && strategyDTO.getWhiteList().contains(processContext.getUserId())) {
+                log.info("命中策略白名单");
+                return true;
+            }
+        }
 
         return true;
     }
