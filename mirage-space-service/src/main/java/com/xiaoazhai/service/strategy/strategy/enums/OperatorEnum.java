@@ -1,4 +1,4 @@
-package com.xiaoazhai.common.enums;
+package com.xiaoazhai.service.strategy.strategy.enums;
 
 import com.xiaoazhai.common.consts.OperatorConsts;
 import lombok.AllArgsConstructor;
@@ -52,29 +52,11 @@ public enum OperatorEnum {
     CONTAIN("contain", "包含", OperatorConsts.TYPE_MULTIPLE_INPUT),
 
     /**
-     * 模糊包含
-     */
-    FUZZY_CONTAIN("fuzzyContain", "模糊包含", OperatorConsts.TYPE_MULTIPLE_INPUT),
-
-    /**
-     * 模糊不包含
-     */
-    NOT_FUZZY_CONTAIN("notFuzzyContain", "模糊不包含", OperatorConsts.TYPE_MULTIPLE_INPUT),
-
-    /**
      * 不包含
      */
-    NOTCONTAIN("notcontain", "不包含", OperatorConsts.TYPE_MULTIPLE_INPUT),
+    NO_CONTAIN("nocontain", "不包含", OperatorConsts.TYPE_MULTIPLE_INPUT),
 
-    /**
-     * 存在于
-     */
-    EXIST("exist", "存在于", OperatorConsts.TYPE_MULTIPLE_INPUT),
 
-    /**
-     * 表达式
-     */
-    EXPRESS("express", "表达式", OperatorConsts.TYPE_MULTIPLE_INPUT),
 
     ;
 

@@ -7,10 +7,12 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class StrategyParamDTO   {
+public class StrategyParamDTO {
 
     /**
-     * 操作符 {@link OperatorEnum}
+     * 操作符
+     *
+     * @see OperatorEnum
      */
     private String op;
 

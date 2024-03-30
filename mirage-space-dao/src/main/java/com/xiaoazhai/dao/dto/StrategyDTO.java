@@ -1,13 +1,12 @@
 package com.xiaoazhai.dao.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.xiaoazhai.common.enums.StrategyExpressionTypeEnum;
 import lombok.Data;
 
 import java.util.List;
 
 /**
- * 调度器DTO
+ * 策略 dto
  */
 @Data
 public class StrategyDTO {
@@ -19,11 +18,15 @@ public class StrategyDTO {
 
     /**
      * 绑定类型
+     *
+     * @see com.xiaoazhai.common.enums.StrategyBindTypeEnum
      */
     private String bindType;
 
     /**
      * 绑定ID
+     * <p>
+     * 具体绑定的业务id
      */
     private String bindId;
 
@@ -36,6 +39,17 @@ public class StrategyDTO {
      * 策略code
      */
     private String strategyCode;
+    /**
+     * 策略表达式
+     */
+    private String strategyExpression;
+
+    /**
+     * 策略表达式类型
+     *
+     * @see StrategyExpressionTypeEnum
+     */
+    private String strategyExpressionType;
 
     /**
      * 策略白名单
@@ -45,5 +59,5 @@ public class StrategyDTO {
     /**
      * 子策略
      */
-    private List<StrategyDTO> strategyDTOS;
+    private List<SubStrategyDTO> strategyDTOS;
 }
