@@ -1,5 +1,6 @@
 package com.xiaoazhai.dto;
 
+import com.xiaoazhai.service.strategy.strategy.enums.StrategyExpressionTypeEnum;
 import lombok.Data;
 
 import java.util.List;
@@ -49,6 +50,10 @@ public class StrategyDTO {
      * @see com.xiaoazhai.service.strategy.strategy.enums.StrategyExpressionTypeEnum
      */
     private String strategyExpressionType;
+    /**
+     * 策略表达式类型枚举
+     */
+    private StrategyExpressionTypeEnum strategyExpressionTypeEnum;
 
     /**
      * 策略白名单
@@ -58,5 +63,5 @@ public class StrategyDTO {
     /**
      * 子策略
      */
-    private List<SubStrategyDTO> strategyDTOS;
+    private List<SubStrategyDTO> subStrategyList;
 }

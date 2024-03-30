@@ -6,14 +6,20 @@ import com.xiaoazhai.service.strategy.strategy.enums.StrategyFieldComponentTypeE
 import com.xiaoazhai.service.strategy.strategy.enums.StrategyFieldValueTypeEnum;
 import com.xiaoazhai.common.strategy.FieldWrapper;
 import com.xiaoazhai.service.strategy.strategy.StrategySchema;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
-public class WhiteListUserStrategy extends StrategySchema {
+import java.util.List;
+
+@Data
+@Slf4j
+public class WhiteListUserStrategySchema extends StrategySchema {
 
 
     @StrategyFieldDesc(name = "白名单用户",
             type = StrategyFieldComponentTypeEnum.INPUT,
-            valueType = StrategyFieldValueTypeEnum.STRING,
+            valueType = StrategyFieldValueTypeEnum.LONG,
             operators = {OperatorEnum.CONTAIN, OperatorEnum.NO_CONTAIN}
     )
-    private FieldWrapper<Long> whiteList;
+    private FieldWrapper<List<Long>> whiteList;
 }

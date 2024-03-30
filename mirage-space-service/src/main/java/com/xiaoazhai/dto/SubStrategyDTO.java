@@ -1,5 +1,7 @@
 package com.xiaoazhai.dto;
 
+import com.xiaoazhai.service.strategy.strategy.StrategySchema;
+import com.xiaoazhai.service.strategy.strategy.enums.SubStrategyCodeEnum;
 import lombok.Data;
 
 import java.util.List;
@@ -31,14 +33,23 @@ public class SubStrategyDTO {
      * @see StrategyConfigDTO
      */
     private String strategyDetail;
+    /**
+     * 策略协议
+     */
+    private StrategySchema strategySchema;
 
     /**
      * 策略code
      */
     private String strategyCode;
+    /**
+     * 策略code枚举
+     */
+    private SubStrategyCodeEnum subStrategyCodeEnum;
 
     /**
      * 策略白名单
      */
     private List<Long> whiteList;
+
 }

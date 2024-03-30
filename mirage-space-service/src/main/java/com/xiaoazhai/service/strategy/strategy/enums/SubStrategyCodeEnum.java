@@ -1,16 +1,15 @@
 package com.xiaoazhai.service.strategy.strategy.enums;
 
 import com.xiaoazhai.service.strategy.strategy.StrategySchema;
-import com.xiaoazhai.service.strategy.strategy.dto.WhiteListUserStrategy;
+import com.xiaoazhai.service.strategy.strategy.dto.WhiteListUserStrategySchema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @Getter
 public enum SubStrategyCodeEnum {
 
-    USER_WHITE_LIST("userWhiteList", "白名单用户", WhiteListUserStrategy.class, 0, StrategyCodeEnum.ACCESS_STRATEGY);
+    USER_WHITE_LIST("userWhiteList", "白名单用户", WhiteListUserStrategySchema.class, 0, StrategyCodeEnum.ACCESS_STRATEGY);
 
 
     /**
