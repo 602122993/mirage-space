@@ -32,4 +32,13 @@ public enum SubStrategyCodeEnum {
      * 父策略
      */
     private final StrategyCodeEnum parentStrategy;
+
+    public static SubStrategyCodeEnum from(String strategyCode) {
+        for (SubStrategyCodeEnum subStrategyCodeEnum : SubStrategyCodeEnum.values()) {
+            if (subStrategyCodeEnum.getCode().equals(strategyCode)) {
+                return subStrategyCodeEnum;
+            }
+        }
+        return null;
+    }
 }

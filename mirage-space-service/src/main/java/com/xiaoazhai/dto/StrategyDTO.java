@@ -1,7 +1,6 @@
 package com.xiaoazhai.dto;
 
-import cn.hutool.core.collection.CollectionUtil;
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import com.xiaoazhai.common.annotations.JsonDetail;
 import com.xiaoazhai.common.util.JsonDetailFormatUtil;
 import com.xiaoazhai.dao.pojo.Strategy;
@@ -73,15 +72,32 @@ public class StrategyDTO {
      */
     private List<SubStrategyDTO> subStrategyList;
 
+    public static List<StrategyDTO> fromStrategyList(List<Strategy> strategyList) {
+        return strategyList.stream().map(StrategyDTO::fromStrategy).toList();
+    }
+
 
     public Strategy toStrategy() {
         Strategy strategy = new Strategy();
         strategy.setStrategyCode(strategyCode);
         strategy.setBindType(bindType);
         strategy.setBindId(bindId);
-        strategy.setStrategyDetail(JsonDetailFormatUtil.formatJson(this));
+        strategy.setStrategyDetail(JsonDetailFormatUtil.toJson(this));
         strategy.setId(id);
         return strategy;
     }
+
+
+    public static StrategyDTO fromStrategy(Strategy strategy) {
+        StrategyDTO strategyDTO = new StrategyDTO();
+        strategyDTO.setStrategyCode(strategy.getStrategyCode());
+        strategyDTO.setBindType(strategy.getBindType());
+        strategyDTO.setBindId(strategy.getBindId());
+        JsonDetailFormatUtil.fromJson(strategyDTO, strategy.getStrategyDetail());
+        strategyDTO.setId(strategy.getId());
+        strategyDTO.setStrategyExpressionTypeEnum(StrategyExpressionTypeEnum.from(strategyDTO.getStrategyExpressionType()));
+        return strategyDTO;
+    }
+
 
 }

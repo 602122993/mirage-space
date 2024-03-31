@@ -17,5 +17,7 @@ import java.util.List;
 public interface IStrategyService extends IService<Strategy> {
 
 
+    List<StrategyDTO> queryStrategy(String bindType, Long bindId);
+
     void addOrUpdate(List<StrategyDTO> strategyDTOList);
 }

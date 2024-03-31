@@ -17,4 +17,14 @@ public enum StrategyExpressionTypeEnum {
     ;
 
     private String code;
+
+    public static StrategyExpressionTypeEnum from(String strategyExpressionType) {
+        for (StrategyExpressionTypeEnum strategyExpressionTypeEnum : StrategyExpressionTypeEnum.values()) {
+            if (strategyExpressionTypeEnum.getCode().equals(strategyExpressionType)) {
+                return strategyExpressionTypeEnum;
+            }
+        }
+        return null;
+
+    }
 }
