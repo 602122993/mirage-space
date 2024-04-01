@@ -1,9 +1,9 @@
 package com.xiaoazhai.dto;
 
-import com.alibaba.fastjson2.JSON;
 import com.xiaoazhai.common.annotations.JsonDetail;
 import com.xiaoazhai.common.util.JsonDetailFormatUtil;
 import com.xiaoazhai.dao.pojo.Strategy;
+import com.xiaoazhai.service.strategy.strategy.enums.StrategyBindTypeEnum;
 import com.xiaoazhai.service.strategy.strategy.enums.StrategyExpressionTypeEnum;
 import lombok.Data;
 
@@ -41,6 +41,8 @@ public class StrategyDTO {
 
     /**
      * 策略code
+     *
+     * @see com.xiaoazhai.service.strategy.strategy.enums.StrategyCodeEnum
      */
     private String strategyCode;
     /**
@@ -100,4 +102,11 @@ public class StrategyDTO {
     }
 
 
+    public List<SubStrategyDTO> fetchSubStrategyListWithBindId() {
+        this.getSubStrategyList().forEach(subStrategyDTO -> {
+            subStrategyDTO.setBindId(this.getId());
+            subStrategyDTO.setBindType(StrategyBindTypeEnum.STRATEGY.getCode());
+        });
+        return this.getSubStrategyList();
+    }
 }

@@ -7,7 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum StrategyCodeEnum {
 
-    ACCESS_STRATEGY;
+    ACCESS_STRATEGY("accessStrategy", "访问策略"),
+    ;
 
+    private String code;
 
-    }
+    private String msg;
+}

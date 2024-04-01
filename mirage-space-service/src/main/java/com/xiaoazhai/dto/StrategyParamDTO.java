@@ -22,11 +22,6 @@ public class StrategyParamDTO {
     private String field;
 
     /**
-     * 具体值的类型
-     */
-    private Class<?> valueType;
-
-    /**
      * 具体值
      */
     private List<Object> values;

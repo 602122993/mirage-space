@@ -53,6 +53,10 @@ public class SubStrategyDTO {
      */
     private SubStrategyCodeEnum subStrategyCodeEnum;
     /**
+     * 子策略顺序
+     */
+    private Integer index;
+    /**
      * 策略白名单
      */
     @JsonDetail
@@ -67,6 +71,7 @@ public class SubStrategyDTO {
         strategy.setStrategyCode(strategyCode);
         strategy.setBindType(bindType);
         strategy.setBindId(bindId);
+        strategy.setIndex(index);
         strategy.setStrategyDetail(JsonDetailFormatUtil.toJson(this));
         strategy.setId(id);
         return strategy;

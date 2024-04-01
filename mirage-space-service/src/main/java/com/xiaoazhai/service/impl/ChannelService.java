@@ -8,6 +8,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -23,7 +24,7 @@ public class ChannelService {
     List<ChannelDataStrategy> channelDataStrategyList;
     @Resource
     List<ChannelGroupAssemblyStrategy> channelGroupAssemblyStrategyList;
-    private Map<Integer, ChannelDataStrategy<?>> channelDataStrategyMap;
+    private final Map<Integer, ChannelDataStrategy<?>> channelDataStrategyMap = new HashMap<>();
 
     private Map<Integer, ChannelGroupAssemblyStrategy> channelGroupAssemblyStrategyMap;
 

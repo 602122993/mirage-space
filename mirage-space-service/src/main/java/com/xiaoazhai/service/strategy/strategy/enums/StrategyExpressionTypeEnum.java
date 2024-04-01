@@ -27,4 +27,14 @@ public enum StrategyExpressionTypeEnum {
         return null;
 
     }
+
+    public static String fromExpression(String expression) {
+        if (AND.code.equals(expression)) {
+            return AND.getCode();
+        }
+        if (OR.code.equals(expression)) {
+            return OR.getCode();
+        }
+        return EXPRESSION.getCode();
+    }
 }

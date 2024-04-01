@@ -2,8 +2,10 @@ package com.xiaoazhai.dao.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,6 +38,10 @@ public class Strategy implements Serializable {
      * 绑定ID
      */
     private Long bindId;
+    /**
+     * 排序
+     */
+    private Integer index;
 
     /**
      * 策略详情
