@@ -55,7 +55,7 @@ public class SubStrategyDTO {
     /**
      * 子策略顺序
      */
-    private Integer index;
+    private Integer sort;
     /**
      * 策略白名单
      */
@@ -71,7 +71,7 @@ public class SubStrategyDTO {
         strategy.setStrategyCode(strategyCode);
         strategy.setBindType(bindType);
         strategy.setBindId(bindId);
-        strategy.setIndex(index);
+        strategy.setSort(sort);
         strategy.setStrategyDetail(JsonDetailFormatUtil.toJson(this));
         strategy.setId(id);
         return strategy;

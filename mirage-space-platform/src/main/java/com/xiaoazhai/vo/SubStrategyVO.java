@@ -5,7 +5,6 @@ import com.xiaoazhai.dto.StrategyConfigDTO;
 import com.xiaoazhai.dto.StrategyParamDTO;
 import com.xiaoazhai.dto.SubStrategyDTO;
 import com.xiaoazhai.service.strategy.strategy.enums.OperatorEnum;
-import com.xiaoazhai.service.strategy.strategy.enums.StrategyBindTypeEnum;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -39,7 +38,7 @@ public class SubStrategyVO {
         SubStrategyDTO subStrategyDTO = new SubStrategyDTO();
         subStrategyDTO.setId(id);
         subStrategyDTO.setStrategyCode(code);
-        subStrategyDTO.setIndex(index);
+        subStrategyDTO.setSort(index);
         subStrategyDTO.setWhiteList(whiteUserIdList);
         StrategyConfigDTO strategyConfigDTO = new StrategyConfigDTO();
         strategyConfigDTO.setCondition(paramList);

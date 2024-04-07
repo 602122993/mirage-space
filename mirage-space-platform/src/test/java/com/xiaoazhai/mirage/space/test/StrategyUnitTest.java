@@ -1,15 +1,13 @@
 package com.xiaoazhai.mirage.space.test;
 
 
-import com.alibaba.fastjson2.JSON;
-import com.xiaoazhai.dto.StrategyConfigDTO;
+import com.alibaba.fastjson.JSON;
 import com.xiaoazhai.dto.StrategyDTO;
 import com.xiaoazhai.dto.StrategyParamDTO;
-import com.xiaoazhai.dto.SubStrategyDTO;
 import com.xiaoazhai.service.IStrategyService;
-import com.xiaoazhai.service.strategy.strategy.enums.StrategyBindTypeEnum;
-import com.xiaoazhai.service.strategy.strategy.enums.StrategyExpressionTypeEnum;
-import com.xiaoazhai.service.strategy.strategy.enums.SubStrategyCodeEnum;
+import com.xiaoazhai.service.strategy.strategy.enums.*;
+import com.xiaoazhai.vo.StrategyVO;
+import com.xiaoazhai.vo.SubStrategyVO;
 import jakarta.annotation.Resource;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
@@ -17,8 +15,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,31 +23,37 @@ public class StrategyUnitTest {
 
     @Resource
     private IStrategyService strategyService;
-    
+
 
     @Test
     public void testAddStrategy() {
-        StrategyDTO strategyDTO = new StrategyDTO();
-        strategyDTO.setStrategyCode("accessStrategy");
-        strategyDTO.setBindId(1234L);
-        strategyDTO.setBindType(StrategyBindTypeEnum.DISPATCHER.getCode());
-        strategyDTO.setStrategyExpressionType(StrategyExpressionTypeEnum.AND.getCode());
-        strategyDTO.setWhiteList(Lists.newArrayList(1L, 2L, 3L));
-        SubStrategyDTO subStrategyDTO = new SubStrategyDTO();
-        subStrategyDTO.setStrategyCode(SubStrategyCodeEnum.USER_WHITE_LIST.getCode());
-        subStrategyDTO.setWhiteList(Lists.newArrayList(1L, 2L, 3L));
-        StrategyConfigDTO strategyConfigDTO = new StrategyConfigDTO();
+        StrategyVO request = buildAssessStrategyVO();
+        StrategyDTO dto = request.convertToDTO(1010L, StrategyBindTypeEnum.DISPATCHER_CHANNEL.getCode());
+        strategyService.addOrUpdate(Lists.newArrayList(dto));
+        System.out.println(JSON.toJSONString(strategyService.queryStrategy(StrategyBindTypeEnum.DISPATCHER_CHANNEL.getCode(),1010L )));
+    }
+
+    private StrategyVO buildAssessStrategyVO() {
+        StrategyVO strategyVO = new StrategyVO();
+        strategyVO.setCode(StrategyCodeEnum.ACCESS_STRATEGY.getCode());
+        strategyVO.setExpression(StrategyExpressionTypeEnum.AND.getCode());
+        strategyVO.setSubStrategyVOList(Lists.newArrayList(buildWhiteListStrategy()));
+        return strategyVO;
+    }
+
+    private SubStrategyVO buildWhiteListStrategy() {
+        SubStrategyVO subStrategyVO = new SubStrategyVO();
+        subStrategyVO.setCode(SubStrategyCodeEnum.USER_WHITE_LIST.getCode());
+        subStrategyVO.setIndex(0);
+        subStrategyVO.setParamList(buildWhiteListParamList());
+        return subStrategyVO;
+    }
+
+    private List<StrategyParamDTO> buildWhiteListParamList() {
         StrategyParamDTO strategyParamDTO = new StrategyParamDTO();
-        strategyParamDTO.setOp("contains");
-        strategyParamDTO.setValues(Lists.newArrayList("1", "2", "3"));
+        strategyParamDTO.setOp(OperatorEnum.CONTAIN.getKey());
         strategyParamDTO.setField("whiteList");
-        Map<String, Object> fields = new HashMap<>();
-        fields.put("whiteList", Lists.newArrayList(1L, 2L, 3L));
-        strategyConfigDTO.setFields(fields);
-        strategyConfigDTO.setCondition(Lists.newArrayList(strategyParamDTO));
-        subStrategyDTO.setStrategyConfig(strategyConfigDTO);
-        strategyDTO.setSubStrategyList(Lists.newArrayList(subStrategyDTO));
-        strategyService.addOrUpdate(Lists.newArrayList(strategyDTO));
-        System.out.println(JSON.toJSONString(strategyService.queryStrategy(StrategyBindTypeEnum.DISPATCHER.getCode(), 1234L)));
+        strategyParamDTO.setValues(Lists.newArrayList(1L, 2L));
+        return Lists.newArrayList(strategyParamDTO);
     }
 }

@@ -41,7 +41,7 @@ public class Strategy implements Serializable {
     /**
      * 排序
      */
-    private Integer index;
+    private Integer sort;
 
     /**
      * 策略详情
