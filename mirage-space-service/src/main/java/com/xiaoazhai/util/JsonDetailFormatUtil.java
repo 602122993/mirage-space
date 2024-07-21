@@ -1,9 +1,10 @@
-package com.xiaoazhai.common.util;
+package com.xiaoazhai.util;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import com.alibaba.fastjson2.JSONObject;
 import com.xiaoazhai.common.annotations.JsonDetail;
+import com.xiaoazhai.service.strategy.strategy.StrategySchema;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -26,13 +27,25 @@ public class JsonDetailFormatUtil {
     }
 
     public static void fromJson(Object obj, String json) {
+        fromJson(obj, json, null);
+    }
+
+
+    public static void fromJson(Object obj, String json,Class<? extends StrategySchema> strategySchema) {
         JSONObject jsonObject = JSONObject.parseObject(json);
         Field[] fields = ReflectUtil.getFields(obj.getClass());
         List<Field> needFormatList = Arrays.stream(fields)
                 .filter(field -> field.getAnnotation(JsonDetail.class) != null)
                 .toList();
         if (CollectionUtil.isNotEmpty(needFormatList)) {
-            needFormatList.forEach(field -> ReflectUtil.setFieldValue(obj, field, jsonObject.get(field.getName())));
+
+            needFormatList.forEach(field -> {
+                if (field.getAnnotation(JsonDetail.class).isScheme()) {
+                    ReflectUtil.setFieldValue(obj, field, jsonObject.getObject(field.getName(), strategySchema));
+                } else {
+                    ReflectUtil.setFieldValue(obj, field, jsonObject.getObject(field.getName(), field.getType()));
+                }
+            });
         }
     }
 }

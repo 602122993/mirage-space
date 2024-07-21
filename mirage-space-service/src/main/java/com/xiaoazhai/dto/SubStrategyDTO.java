@@ -1,7 +1,7 @@
 package com.xiaoazhai.dto;
 
 import com.xiaoazhai.common.annotations.JsonDetail;
-import com.xiaoazhai.common.util.JsonDetailFormatUtil;
+import com.xiaoazhai.util.JsonDetailFormatUtil;
 import com.xiaoazhai.dao.pojo.Strategy;
 import com.xiaoazhai.service.strategy.strategy.StrategySchema;
 import com.xiaoazhai.service.strategy.strategy.enums.SubStrategyCodeEnum;
@@ -38,6 +38,7 @@ public class SubStrategyDTO {
     /**
      * 策略协议
      */
+    @JsonDetail(isScheme = true)
     private StrategySchema strategySchema;
     /**
      * 策略配置
@@ -72,6 +73,8 @@ public class SubStrategyDTO {
         strategy.setBindType(bindType);
         strategy.setBindId(bindId);
         strategy.setSort(sort);
+        subStrategyCodeEnum = SubStrategyCodeEnum.from(strategyCode);
+        this.setStrategySchema(StrategySchemeUtil.parseStrategySchema(this.getStrategyConfig(), subStrategyCodeEnum));
         strategy.setStrategyDetail(JsonDetailFormatUtil.toJson(this));
         strategy.setId(id);
         return strategy;
@@ -83,9 +86,8 @@ public class SubStrategyDTO {
         strategyDTO.setBindType(strategy.getBindType());
         strategyDTO.setBindId(strategy.getBindId());
         strategyDTO.setId(strategy.getId());
-        JsonDetailFormatUtil.fromJson(strategyDTO, strategy.getStrategyDetail());
         strategyDTO.setSubStrategyCodeEnum(SubStrategyCodeEnum.from(strategy.getStrategyCode()));
-        strategyDTO.setStrategySchema(StrategySchemeUtil.parseStrategySchema(strategyDTO.getStrategyConfig(), strategyDTO.getSubStrategyCodeEnum()));
+        JsonDetailFormatUtil.fromJson(strategyDTO, strategy.getStrategyDetail(), strategyDTO.getSubStrategyCodeEnum().getStrategySchema());
         return strategyDTO;
     }
 }

@@ -46,6 +46,8 @@ public class SubStrategyVO {
         paramList.forEach(param -> {
             if (Objects.equals(OperatorEnum.from(param.getOp()).getType(), OperatorConsts.TYPE_SINGLE_INPUT)) {
                 field.put(param.getField(), param.getValues().getFirst());
+            } else {
+                field.put(param.getField(), param.getValues());
             }
         });
         strategyConfigDTO.setFields(field);

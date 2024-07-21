@@ -1,7 +1,7 @@
 package com.xiaoazhai.dto;
 
 import com.xiaoazhai.common.annotations.JsonDetail;
-import com.xiaoazhai.common.util.JsonDetailFormatUtil;
+import com.xiaoazhai.util.JsonDetailFormatUtil;
 import com.xiaoazhai.dao.pojo.Strategy;
 import com.xiaoazhai.service.strategy.strategy.enums.StrategyBindTypeEnum;
 import com.xiaoazhai.service.strategy.strategy.enums.StrategyExpressionTypeEnum;

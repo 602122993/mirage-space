@@ -25,6 +25,10 @@ public class StrategyParamDTO {
      * 具体值
      */
     private List<Object> values;
+    /**
+     * 值类型
+     */
+    private Class<?> type;
 
     public boolean valid() {
         if (CollectionUtils.isEmpty(values)) {

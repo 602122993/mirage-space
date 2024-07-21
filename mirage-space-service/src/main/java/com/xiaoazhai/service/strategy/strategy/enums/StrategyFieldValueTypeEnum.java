@@ -7,6 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum StrategyFieldValueTypeEnum {
 
-    STRING,LONG
+    STRING(String.class),LONG(Long.class)
 
+    ;
+    public Class<?> clazz;
 }
